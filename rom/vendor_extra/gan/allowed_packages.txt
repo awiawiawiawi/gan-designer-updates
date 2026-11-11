@@ -1,0 +1,8 @@
+# Packages that may be installed or updated on the device.
+# One package name per line. A trailing * allows every package that
+# starts with that prefix. Anything not listed here is refused.
+# Apps built into the ROM are not affected by this list.
+#
+# Examples:
+#   com.whatsapp
+#   org.mozilla.*
