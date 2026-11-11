@@ -1,4 +1,5 @@
-# Packages that may be installed or updated on the device.
+# Packages that may be installed or updated before the device has received
+# a policy from the management server. After that, the server's list is used.
 # One package name per line. A trailing * allows every package that
 # starts with that prefix. Anything not listed here is refused.
 # Apps built into the ROM are not affected by this list.

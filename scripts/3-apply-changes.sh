@@ -4,7 +4,13 @@
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 
-# vendor/extra: product settings and the install allowlist.
+if [ ! -f "$REPO_ROOT/rom/vendor_extra/gan/device_config.json" ]; then
+    echo "WARNING: rom/vendor_extra/gan/device_config.json is missing."
+    echo "         The ROM will be built WITHOUT remote management."
+    echo "         Run 'server/gan_server.py init' on the server and copy the file it creates."
+fi
+
+# vendor/extra: product settings, the install allowlist and the management agent.
 mkdir -p "$ROM_DIR/vendor/extra"
 rsync -a --delete "$REPO_ROOT/rom/vendor_extra/" "$ROM_DIR/vendor/extra/"
 

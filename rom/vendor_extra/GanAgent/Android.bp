@@ -1,0 +1,11 @@
+// Remote management agent. Signed with the platform key so it can hold the
+// signature permissions it needs; it is not installable or removable by the user.
+android_app {
+    name: "GanAgent",
+    srcs: ["src/**/*.java"],
+    certificate: "platform",
+    platform_apis: true,
+    optimize: {
+        enabled: false,
+    },
+}

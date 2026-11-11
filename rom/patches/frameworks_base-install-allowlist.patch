@@ -1,11 +1,11 @@
---- a/services/core/java/com/android/server/pm/InstallPackageHelper.java	2026-11-11 13:32:34.959822076 +0000
-+++ b/services/core/java/com/android/server/pm/InstallPackageHelper.java	2026-11-11 13:32:35.001896850 +0000
+--- a/services/core/java/com/android/server/pm/InstallPackageHelper.java
++++ b/services/core/java/com/android/server/pm/InstallPackageHelper.java
 @@ -1448,6 +1448,15 @@
              Trace.traceEnd(TRACE_TAG_PACKAGE_MANAGER);
          }
  
 +        // Custom ROM: only packages on the built-in allowlist may be installed.
-+        if (!GanInstallPolicy.isAllowed(parsedPackage.getPackageName())) {
++        if (!GanInstallPolicy.isAllowed(mContext, parsedPackage.getPackageName())) {
 +            Slog.w(TAG, "Install of " + parsedPackage.getPackageName()
 +                    + " blocked by install allowlist");
 +            throw new PrepareFailure(PackageManager.INSTALL_FAILED_USER_RESTRICTED,
